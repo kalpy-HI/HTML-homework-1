@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    input[type=text], select {
+      position: absolute;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  </style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>點餐系統</title>
+
+    <script src="jquery/jquery-3.3.1.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('input[type=checkbox]').change(function(e){
+           if ($('input[type=checkbox]:checked').length > 1) {
+                $(this).prop('checked', false)
+                alert("allowed only 1");
+           }
+        });
+      });
+    </script>
+
+  </head>
+    <body>
+
+      <form method="get">
+        <strong>歡迎來到點餐系統！</strong><p>
+
+        您的大名是：
+          <input type="text" name="username"><p>
+
+        今天用餐目的為：
+          家庭聚餐<input type="radio" name = "purpose" value = "1">
+          路過就進來<input type="radio" name = "purpose" value = "2">
+          <p>
+
+        我想吃：<br>
+            <input class="single-checkbox" type = "checkbox" name = "eating" value = "1">地中海牡蠣風味義式紅醬蛋汁煎餅佐時蔬(蚵仔煎)<br>
+            <input class="single-checkbox" type = "checkbox" name = "eating" value = "2">義式羅勒醬佐希臘處女橄欖油法國春雞(鹹酥雞)<br>
+            <input class="single-checkbox" type = "checkbox" name = "eating" value = "3">荷蘭芹碎花絲佐紅醋醬黃金磚塊(臭豆腐)<br>
+            <input class="single-checkbox" type = "checkbox" name = "eating" value = "4">精燉牡礪天使細麵佐日式柴魚高湯(蚵仔麵線)<br>
+          <p>
+
+        我想喝：
+            <select name = "drinking" multiple size="1" onmousedown="if(this.options.length>1){this.size=3;}" onblur="this.size=1;" >
+              <option value = "1">紅茶</option>
+              <option value = "2">綠茶</option>
+              <option value = "3">奶茶</option>
+              <option value = "4">本日主廚精選</option>
+            </select><p>
+
+         對於本餐廳有甚麼想說的？<br>
+          <textarea name = "talk" cols="15" rows="5"></textarea>
+
+        <br><input type="submit" value="送出資料"> <input type="reset" value="清除資料">
+      </form>
+    </body>
+</html>
